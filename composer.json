@@ -3,8 +3,9 @@
   "description"      : "Database logger for Laravel 5",
   "keywords"         : [
     "laravel",
-    "diff",
-    "compare"
+    "log",
+    "logger",
+    "database"
   ],
   "license"          : "MIT",
   "homepage"         : "https://github.com/vi-kon/laravel-db-log",
