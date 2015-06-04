@@ -2,11 +2,11 @@
 
 namespace ViKon\DbLog;
 
-
 use Illuminate\Database\Eloquent\Collection;
 use ViKon\DbLog\Models\Log;
 
-class DbLogger {
+class DbLogger
+{
 
     private $types = [];
 
@@ -17,7 +17,8 @@ class DbLogger {
      *
      * @throws \ViKon\DbLog\DbLoggerException
      */
-    public function log($name) {
+    public function log($name)
+    {
         if (isset($this->types[$name])) {
             return new $this->types[$name]($name);
         }
@@ -30,7 +31,8 @@ class DbLogger {
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function map(Collection $collection) {
+    public function map(Collection $collection)
+    {
         return $collection->map(function (Log $log) {
             if (isset($this->types[$log->name])) {
                 return new $this->types[$log->name]($log->name, $log);
@@ -44,7 +46,8 @@ class DbLogger {
      * @param string $name
      * @param string $class
      */
-    public function register($name, $class) {
+    public function register($name, $class)
+    {
         $this->types[$name] = $class;
     }
 

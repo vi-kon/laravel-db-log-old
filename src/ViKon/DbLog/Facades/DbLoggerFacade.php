@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Facade;
  *
  * @package ViKon\DbLog\Facades
  */
-class DbLoggerFacade extends Facade {
+class DbLoggerFacade extends Facade
+{
     /**
      * @return string
      */
-    protected static function getFacadeAccessor() {
+    protected static function getFacadeAccessor()
+    {
         return 'log.db';
     }
 }

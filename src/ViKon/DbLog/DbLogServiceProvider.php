@@ -11,14 +11,16 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package ViKon\DbLog
  */
-class DbLogServiceProvider extends ServiceProvider {
+class DbLogServiceProvider extends ServiceProvider
+{
 
     /**
      * Bootstrap the application events.
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         $this->publishes([
             __DIR__ . '/../../database/migrations/' => base_path('/database/migrations'),
         ], 'migrations');
@@ -29,7 +31,8 @@ class DbLogServiceProvider extends ServiceProvider {
      *
      * @return array
      */
-    public function provides() {
+    public function provides()
+    {
         return ['log.db'];
     }
 
@@ -38,7 +41,8 @@ class DbLogServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
         $this->app->singleton('log.db', 'ViKon\DbLog\DbLogger');
     }
 }

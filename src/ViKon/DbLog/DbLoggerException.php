@@ -9,6 +9,7 @@ namespace ViKon\DbLog;
  *
  * @package ViKon\DbLog
  */
-class DbLoggerException extends \Exception {
+class DbLoggerException extends \Exception
+{
 
 }

@@ -12,7 +12,8 @@ use ViKon\DbLog\Models\Log;
  *
  * @package ViKon\DbLog
  */
-abstract class AbstractLogEntry {
+abstract class AbstractLogEntry
+{
     /** @var string */
     protected $name;
     /** @var array */
@@ -24,10 +25,11 @@ abstract class AbstractLogEntry {
      * @param string                       $name
      * @param null|\ViKon\DbLog\Models\Log $log
      */
-    public function __construct($name, Log $log = null) {
+    public function __construct($name, Log $log = null)
+    {
         $this->name = $name;
         if ($this->log !== null) {
-            $this->log = $log;
+            $this->log  = $log;
             $this->data = $this->log->data;
         }
     }
@@ -35,7 +37,8 @@ abstract class AbstractLogEntry {
     /**
      * @return null|\ViKon\Auth\Models\User
      */
-    public function createdByUser() {
+    public function createdByUser()
+    {
         if ($this->log) {
             return $this->log->createdByUser;
         }
@@ -46,7 +49,8 @@ abstract class AbstractLogEntry {
     /**
      * @return \Carbon\Carbon|null
      */
-    public function createdAt() {
+    public function createdAt()
+    {
         if ($this->log) {
             return $this->log->created_at;
         }
@@ -54,9 +58,10 @@ abstract class AbstractLogEntry {
         return null;
     }
 
-    public function save() {
+    public function save()
+    {
         if ($this->log === null) {
-            $this->log = new Log();
+            $this->log             = new Log();
             $this->log->created_at = new Carbon();
             if (\Auth::check()) {
                 $this->log->created_by_user_id = \Auth::user()->id;

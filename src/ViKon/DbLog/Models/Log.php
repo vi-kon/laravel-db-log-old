@@ -17,7 +17,8 @@ namespace ViKon\DbLog\Models;
  * @method static \Illuminate\Database\Query\Builder|\ViKon\DbLog\Models\Log whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\ViKon\DbLog\Models\Log whereCreatedByUserId($value)
  */
-class Log extends \Eloquent {
+class Log extends \Eloquent
+{
 
     /**
      *
@@ -39,21 +40,24 @@ class Log extends \Eloquent {
      *
      * @return mixed[]
      */
-    public function getDataAttribute($data) {
+    public function getDataAttribute($data)
+    {
         return unserialize($data);
     }
 
     /**
      * @param mixed $data
      */
-    public function setDataAttribute($data) {
+    public function setDataAttribute($data)
+    {
         $this->attributes['data'] = serialize($data);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function createdByUser() {
+    public function createdByUser()
+    {
         return $this->belongsTo('ViKon\Auth\models\User', 'id', 'created_by_user_id');
     }
 }

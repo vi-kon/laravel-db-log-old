@@ -3,14 +3,21 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLogsTable extends Migration {
+/**
+ * Class CreateLogsTable
+ *
+ * @author Kovács Vince <vincekovacs@hotmail.com>
+ */
+class CreateLogsTable extends Migration
+{
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         Schema::create('logs', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
@@ -19,12 +26,12 @@ class CreateLogsTable extends Migration {
             $table->text('data');
             $table->dateTime('created_at');
             $table->unsignedInteger('created_by_user_id')
-                ->nullable(true);
+                  ->nullable(true);
             $table->foreign('created_by_user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+                  ->references('id')
+                  ->on('users')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 
@@ -33,7 +40,8 @@ class CreateLogsTable extends Migration {
      *
      * @return void
      */
-    public function down() {
+    public function down()
+    {
         Schema::drop('logs');
     }
 }
