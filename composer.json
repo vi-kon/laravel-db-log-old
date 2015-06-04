@@ -23,11 +23,8 @@
         "monolog/monolog"    : "~1.11"
     },
     "autoload"         : {
-        "psr-0": {
-            "ViKon\\DbLog\\": "src/"
-        },
         "psr-4": {
-            "ViKon\\DbLog\\": "src/"
+            "ViKon\\DbLog\\": "src/ViKon/DbLog"
         }
     },
     "minimum-stability": "stable"
