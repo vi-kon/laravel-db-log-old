@@ -16,9 +16,10 @@
         }
     ],
     "require"          : {
-        "php"               : ">=5.4.0",
-        "illuminate/support": "~5.0",
-        "psr/log"           : "~1.0"
+        "php"                : ">=5.4.0",
+        "illuminate/database": "~5.0",
+        "illuminate/support" : "~5.0",
+        "monolog/monolog"    : "~1.11"
     },
     "autoload"         : {
         "psr-0": {
