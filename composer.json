@@ -1,11 +1,12 @@
 {
     "name"             : "vi-kon/laravel-db-log",
-    "description"      : "Database logger for Laravel 5",
+    "description"      : "Database logger for Laravel 5 and Monolog",
     "keywords"         : [
         "laravel",
         "log",
         "logger",
-        "database"
+        "database",
+        "monolog"
     ],
     "license"          : "MIT",
     "homepage"         : "https://github.com/vi-kon/laravel-db-log",
