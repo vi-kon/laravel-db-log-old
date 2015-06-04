@@ -21,9 +21,8 @@ class DbLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../../database/migrations/' => base_path('/database/migrations'),
-        ], 'migrations');
+        $this->publishes([__DIR__ . '/../../config/config.php' => config_path('/vi-kon/db-log.php')], 'config');
+        $this->publishes([__DIR__ . '/../../database/migrations/' => base_path('/database/migrations')], 'migrations');
     }
 
     /**

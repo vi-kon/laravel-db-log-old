@@ -18,20 +18,16 @@ class CreateLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
+        Schema::create(config('vi-kon.db-log.table'), function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('name');
-            $table->text('data');
+            $table->string('message');
+            $table->text('context');
+            $table->tinyInteger('level');
+            $table->string('channel');
             $table->dateTime('created_at');
-            $table->unsignedInteger('created_by_user_id')
-                  ->nullable(true);
-            $table->foreign('created_by_user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->text('extra');
         });
     }
 
@@ -42,6 +38,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('logs');
+        Schema::drop(config('vi-kon.db-log.table'));
     }
 }
